@@ -1,0 +1,45 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------ *
+ * Design tokens — single source of truth for the whole site.
+ * Exposed as Tailwind utilities: bg-ink, text-accent, font-display, …
+ *
+ * Shando Nigeria — 3-role palette:
+ *   ink    → deep navy blue  (dark surfaces, bars, hero overlay, stats)
+ *   accent → red             (eyebrows, icons, primary CTA, hovers)
+ *   muted  → silver-grey     (light band that breaks up the white)
+ * ------------------------------------------------------------------ */
+@theme {
+  /* Brand palette */
+  --color-ink: #0a1c3f; /* deep navy blue — bars, hero overlay, stats */
+  --color-ink-800: #112a5c; /* raised dark surfaces (cards on dark) */
+  --color-ink-700: #1d3b74; /* dividers / borders on dark */
+  --color-surface: #ffffff; /* white sections */
+  --color-muted: #eef1f5; /* silver-grey light band (WhyChoose) */
+  --color-silver: #c7ced8; /* silver detail — hairlines, muted text on dark */
+  --color-accent: #d81f2a; /* red accent */
+  --color-accent-600: #b3141f; /* red accent hover */
+
+  /* Typography */
+  --font-display: 'Sora', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background: var(--color-surface);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
