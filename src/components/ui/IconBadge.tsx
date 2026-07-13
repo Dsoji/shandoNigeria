@@ -16,7 +16,7 @@ export function IconBadge({
     <span
       className={cn(
         'inline-flex items-center justify-center text-accent',
-        boxed && 'size-14 rounded-full bg-accent/10',
+        boxed && 'size-14 rounded-[6px] bg-accent/10',
         className,
       )}
     >

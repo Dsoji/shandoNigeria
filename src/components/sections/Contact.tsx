@@ -1,14 +1,13 @@
 import { useState } from 'react'
-import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react'
+import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react'
 import { Container } from '../ui/Container'
-import { SectionHeader } from '../ui/SectionHeader'
 import { services } from '../../data/services'
 import { contact } from '../../data/contact'
 import { cn } from '../../lib/cn'
 
 // Shared field styling so every input/select/textarea lines up.
 const fieldClass =
-  'w-full rounded-md border border-ink/15 bg-white px-4 py-3 text-sm text-ink ' +
+  'w-full rounded-[3px] border border-ink/15 bg-white px-4 py-3 text-sm text-ink ' +
   'placeholder:text-ink/40 outline-none transition-colors ' +
   'focus:border-accent focus:ring-2 focus:ring-accent/30'
 
@@ -77,23 +76,26 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="bg-muted py-20">
+    <section id="contact" className="bg-muted py-24">
       <Container>
-        <SectionHeader
-          eyebrow="Contact Us"
-          title="Let's Build Something Together"
-          align="center"
-        />
-        <p className="mx-auto mt-4 max-w-xl text-center leading-relaxed text-ink/60">
-          Tell us what you need and, if you like, the service you're interested
-          in. Our team will get back to you shortly.
-        </p>
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-end">
+          <div>
+            <p className="eyebrow mb-4">Contact Us</p>
+            <h2 className="max-w-md text-3xl font-medium tracking-[-0.03em] text-ink sm:text-[2.6rem]">
+              Let's build something together
+            </h2>
+          </div>
+          <p className="max-w-md leading-relaxed text-ink/55 lg:justify-self-end lg:text-right">
+            Tell us what you need and, if you like, the service you're
+            interested in. Our team will get back to you shortly.
+          </p>
+        </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-[1.4fr_1fr]">
+        <div className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-[1.4fr_1fr]">
           {/* Form */}
           <form
             onSubmit={handleSubmit}
-            className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-ink/5 sm:p-8"
+            className="rounded-[6px] bg-white p-6 shadow-sm ring-1 ring-ink/5 sm:p-8"
           >
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <div>
@@ -186,10 +188,10 @@ export function Contact() {
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="group mt-6 inline-flex items-center gap-2 rounded-md bg-accent px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-accent-600 disabled:cursor-not-allowed disabled:opacity-60"
+              className="group mt-6 inline-flex items-center gap-2.5 rounded-[3px] bg-accent px-7 py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.08em] text-white transition-colors hover:bg-accent-600 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {status === 'sending' ? 'Sending…' : 'Send Message'}
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+              <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </button>
 
             {status === 'success' && (
@@ -209,8 +211,8 @@ export function Contact() {
           </form>
 
           {/* Contact details */}
-          <div className="rounded-2xl bg-ink p-6 text-white sm:p-8">
-            <h3 className="text-xl font-bold">Get in touch</h3>
+          <div className="rounded-[6px] bg-ink p-6 text-white sm:p-8">
+            <h3 className="text-xl font-medium">Get in touch</h3>
             <p className="mt-3 leading-relaxed text-white/60">
               Reach us directly through any of the channels below.
             </p>

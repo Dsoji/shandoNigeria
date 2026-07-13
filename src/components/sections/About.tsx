@@ -1,53 +1,68 @@
 import { Container } from '../ui/Container'
-import { SectionHeader } from '../ui/SectionHeader'
-import { Button } from '../ui/Button'
 import { images } from '../../data/images'
 
-// Two-column: copy + CTA on the left, a 3-image collage on the right.
+// Editorial two-column: copy + an inline credentials strip on the left,
+// a single strong image anchored by an overlapping navy stat card on the
+// right. Replaces the old generic 3-image collage.
+const credentials = [
+  { value: '2018', label: 'Established in Lagos' },
+  { value: 'Indigenous', label: 'Nigerian-owned' },
+  { value: '4 lines', label: 'Core services' },
+]
+
 export function About() {
   return (
-    <section id="about" className="bg-white py-20">
-      <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+    <section id="about" className="bg-white py-24">
+      <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-[1.05fr_1fr]">
         {/* Text */}
         <div>
-          <SectionHeader
-            eyebrow="About Shando Nigeria"
-            title="Your Trusted Partner in Procurement & Supply Chain"
-          />
+          <p className="eyebrow mb-4">About Shando Nigeria</p>
+          <h2 className="max-w-xl text-3xl font-medium tracking-[-0.03em] text-ink sm:text-[2.6rem]">
+            Your trusted partner in procurement &amp; supply chain
+          </h2>
           <p className="mt-6 max-w-lg leading-relaxed text-ink/60">
             Shando Nigeria Limited is a Nigerian-owned company specializing in
             energy services, strategic procurement, supply chain management,
-            logistics coordination, and industrial sourcing solutions for the
-            oil &amp; gas, power, industrial, and infrastructure sectors.
+            logistics coordination, and industrial sourcing for the oil &amp;
+            gas, power, industrial, and infrastructure sectors.
           </p>
           <p className="mt-4 max-w-lg leading-relaxed text-ink/60">
             Since our incorporation in 2018, we have combined industry
             expertise, strategic partnerships, and efficient operations to help
-            clients improve operational efficiency, reduce procurement risks,
-            and achieve project success.
+            clients improve efficiency, reduce procurement risk, and achieve
+            project success.
           </p>
-          <Button href="#about" variant="dark" className="mt-8">
-            Learn More About Us
-          </Button>
+
+          {/* Inline credentials strip */}
+          <dl className="mt-10 flex flex-wrap gap-x-10 gap-y-6 border-t border-ink/10 pt-8">
+            {credentials.map(({ value, label }) => (
+              <div key={label}>
+                <dt className="text-2xl font-medium tracking-[-0.02em] text-ink">
+                  {value}
+                </dt>
+                <dd className="mt-1 text-xs uppercase tracking-wider text-ink/45">
+                  {label}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
 
-        {/* Image collage */}
-        <div className="grid grid-cols-2 gap-4">
+        {/* Image + overlapping stat card */}
+        <div className="relative">
           <img
             src={images.aboutMain}
-            alt="Industrial energy facility"
-            className="col-span-2 h-64 w-full rounded-lg object-cover"
+            alt="Industrial energy facility at dusk"
+            className="h-[26rem] w-full rounded-[4px] object-cover lg:h-[32rem]"
           />
-          <img
-            src={images.aboutSmall1}
-            alt="Freight and logistics"
-            className="h-40 w-full rounded-lg object-cover"
-          />
-          <img
-            src={images.aboutSmall2}
-            alt="Team partnership"
-            className="h-40 w-full rounded-lg object-cover"
-          />
+          <div className="absolute -bottom-6 -left-6 hidden rounded-[4px] bg-ink p-6 pr-10 sm:block">
+            <div className="text-4xl font-semibold tracking-[-0.02em] text-white">
+              5+
+            </div>
+            <div className="mt-1 max-w-[9rem] text-xs uppercase leading-relaxed tracking-wider text-white/60">
+              Industry sectors served across energy &amp; infrastructure
+            </div>
+          </div>
         </div>
       </Container>
     </section>
