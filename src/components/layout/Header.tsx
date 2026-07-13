@@ -13,7 +13,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-40 border-b border-black/5 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-black/5 bg-white">
       <Container className="flex h-20 items-center justify-between">
         <Logo />
 

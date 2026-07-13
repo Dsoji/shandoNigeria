@@ -22,18 +22,12 @@ export function SectionHeader({
         className,
       )}
     >
-      <div
-        className={cn(
-          'mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent',
-          align === 'center' && 'justify-center',
-        )}
-      >
-        <span>{eyebrow}</span>
-        <span className="h-px w-8 bg-accent" />
+      <div className={cn('eyebrow mb-4', align === 'center' && 'text-center')}>
+        {eyebrow}
       </div>
       <h2
         className={cn(
-          'text-3xl font-bold leading-tight sm:text-4xl',
+          'text-3xl font-medium tracking-[-0.03em] sm:text-[2.6rem]',
           onDark ? 'text-white' : 'text-ink',
         )}
       >

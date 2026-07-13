@@ -13,7 +13,7 @@ export function Card({
   return (
     <div
       className={cn(
-        'rounded-lg border border-black/5 bg-white p-6 shadow-sm transition-shadow hover:shadow-md',
+        'rounded-[4px] border border-ink/10 bg-white p-8 transition-colors hover:border-accent/40',
         className,
       )}
     >

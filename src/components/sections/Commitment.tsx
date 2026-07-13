@@ -9,11 +9,8 @@ export function Commitment() {
       <Container className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
         {/* Copy */}
         <div>
-          <p className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent">
-            <span>Our Commitment</span>
-            <span className="h-px w-8 bg-accent" />
-          </p>
-          <h2 className="text-3xl font-bold text-white sm:text-4xl">
+          <p className="eyebrow mb-4">Our Commitment</p>
+          <h2 className="text-3xl font-medium tracking-[-0.03em] text-white sm:text-[2.6rem]">
             Building Long-Term Partnerships
           </h2>
           <p className="mt-4 max-w-md leading-relaxed text-white/60">
@@ -30,8 +27,12 @@ export function Commitment() {
           {stats.map(({ icon: Icon, value, label }) => (
             <div key={label} className="text-center">
               <Icon strokeWidth={1.5} className="mx-auto mb-3 size-8 text-accent" />
-              <div className="text-3xl font-extrabold text-white">{value}</div>
-              <div className="mt-1 text-xs text-white/60">{label}</div>
+              <div className="text-4xl font-semibold tracking-[-0.02em] text-white">
+                {value}
+              </div>
+              <div className="mt-1.5 text-xs uppercase tracking-wider text-white/55">
+                {label}
+              </div>
             </div>
           ))}
         </div>

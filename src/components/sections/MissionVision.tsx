@@ -21,7 +21,7 @@ export function MissionVision() {
               <div className="mb-4 flex justify-center">
                 <IconBadge icon={icon} boxed />
               </div>
-              <h3 className="mb-3 text-lg font-bold text-ink">{title}</h3>
+              <h3 className="mb-3 text-lg font-medium text-ink">{title}</h3>
               <p className="leading-relaxed text-ink/60">{statement}</p>
               <p className="mt-6 border-l-2 border-accent pl-4 text-left text-sm font-medium italic text-ink/80">
                 {quote}

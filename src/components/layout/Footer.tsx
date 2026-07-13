@@ -8,7 +8,7 @@ import { contact } from '../../data/contact'
 
 export function Footer() {
   return (
-    <footer id="contact" className="bg-ink text-white/70">
+    <footer className="bg-ink text-white/70">
       <Container className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         {/* Brand + socials */}
         <div>

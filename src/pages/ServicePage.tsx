@@ -28,15 +28,17 @@ export function ServicePage() {
 
   return (
     <>
-      {/* Hero */}
+      {/* Hero — cinematic navy grade, matching the home hero treatment */}
       <section className="relative overflow-hidden bg-ink">
         <div className="absolute inset-0">
           <img src={heroImage} alt={label} className="size-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/40" />
+          <div className="absolute inset-0 bg-ink/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-ink/40" />
         </div>
-        <Container className="relative py-20 md:py-28">
+        <Container className="relative py-24 md:py-32">
           {/* Breadcrumb */}
-          <nav className="mb-6 flex items-center gap-1.5 text-xs text-white/60">
+          <nav className="mb-8 flex items-center gap-1.5 text-xs text-white/55">
             <AppLink href="/" className="hover:text-accent">
               Home
             </AppLink>
@@ -50,12 +52,14 @@ export function ServicePage() {
 
           <div className="max-w-2xl">
             <IconBadge icon={Icon} boxed />
-            <h1 className="mt-5 text-4xl font-extrabold leading-tight text-white sm:text-5xl">
+            <h1 className="mt-6 text-4xl font-normal leading-[1.05] tracking-[-0.03em] text-white sm:text-[3.4rem]">
               {title}
             </h1>
-            <p className="mt-4 text-lg text-accent">{tagline}</p>
-            <p className="mt-4 max-w-xl leading-relaxed text-white/70">{intro}</p>
-            <Button href="#contact" variant="accent" className="mt-8">
+            <p className="mt-5 max-w-lg text-lg font-normal leading-snug text-accent">
+              {tagline}
+            </p>
+            <p className="mt-5 max-w-xl leading-relaxed text-white/65">{intro}</p>
+            <Button href="#contact" variant="accent" className="mt-9">
               Request a Quote
             </Button>
           </div>
@@ -69,7 +73,7 @@ export function ServicePage() {
 
       {/* Gallery */}
       {gallery.length > 0 && (
-        <section className="bg-white pb-20">
+        <section className="bg-white pb-24">
           <Container>
             <div
               className={cn(
@@ -82,7 +86,7 @@ export function ServicePage() {
                   key={src}
                   src={src}
                   alt={label}
-                  className="h-64 w-full rounded-lg object-cover"
+                  className="h-64 w-full rounded-[4px] object-cover"
                 />
               ))}
             </div>
@@ -91,10 +95,10 @@ export function ServicePage() {
       )}
 
       {/* CTA */}
-      <section className="bg-ink py-16">
+      <section className="bg-ink py-20">
         <Container className="flex flex-col items-center gap-6 text-center">
-          <h2 className="text-3xl font-bold text-white sm:text-4xl">
-            Let's work together.
+          <h2 className="text-3xl font-medium tracking-[-0.03em] text-white sm:text-[2.6rem]">
+            Let's work together
           </h2>
           <p className="max-w-xl leading-relaxed text-white/60">
             Partner with Shando Nigeria Limited for reliable procurement and
@@ -107,20 +111,21 @@ export function ServicePage() {
       </section>
 
       {/* Other services */}
-      <section className="bg-muted py-16">
+      <section className="bg-muted py-20">
         <Container>
-          <h2 className="mb-8 text-center text-2xl font-bold text-ink">
-            Explore Our Other Services
+          <p className="eyebrow mb-3 text-center">Keep Exploring</p>
+          <h2 className="mb-10 text-center text-2xl font-medium tracking-[-0.02em] text-ink sm:text-3xl">
+            Explore our other services
           </h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {others.map(({ slug: s, icon: OtherIcon, label: otherLabel }) => (
               <AppLink
                 key={s}
                 href={`/services/${s}`}
-                className="group flex items-center gap-3 rounded-lg border border-black/5 bg-white p-5 shadow-sm transition-shadow hover:shadow-md"
+                className="group flex items-center gap-3 rounded-[4px] border border-ink/10 bg-white p-5 transition-colors hover:border-accent/40"
               >
                 <IconBadge icon={OtherIcon} boxed />
-                <span className="text-sm font-semibold text-ink group-hover:text-accent">
+                <span className="text-sm font-medium text-ink group-hover:text-accent">
                   {otherLabel}
                 </span>
               </AppLink>
@@ -135,22 +140,19 @@ export function ServicePage() {
 // A single content block — either a card grid or a checklist.
 function Group({ group, shaded }: { group: ServiceGroup; shaded: boolean }) {
   return (
-    <section className={cn('py-16', shaded ? 'bg-muted' : 'bg-white')}>
+    <section className={cn('py-20', shaded ? 'bg-muted' : 'bg-white')}>
       <Container>
-        <div className="mb-8 flex items-center gap-3">
-          <span className="h-px w-8 bg-accent" />
-          <h2 className="text-2xl font-bold text-ink sm:text-3xl">
-            {group.heading}
-          </h2>
-        </div>
+        <h2 className="mb-10 text-2xl font-medium tracking-[-0.02em] text-ink sm:text-3xl">
+          {group.heading}
+        </h2>
 
         {group.layout === 'cards' ? (
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {group.items.map((item) => (
               <Card key={item.title}>
-                <h3 className="mb-2 text-lg font-bold text-ink">{item.title}</h3>
+                <h3 className="mb-2 text-lg font-medium text-ink">{item.title}</h3>
                 {item.body && (
-                  <p className="text-sm leading-relaxed text-ink/60">
+                  <p className="text-sm leading-relaxed text-ink/55">
                     {item.body}
                   </p>
                 )}
@@ -162,9 +164,9 @@ function Group({ group, shaded }: { group: ServiceGroup; shaded: boolean }) {
             {group.items.map((item) => (
               <li
                 key={item.title}
-                className="flex items-center gap-3 rounded-lg border border-black/5 bg-white p-4 shadow-sm"
+                className="flex items-center gap-3 rounded-[4px] border border-ink/10 bg-white p-4"
               >
-                <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent">
+                <span className="flex size-7 shrink-0 items-center justify-center rounded-[4px] bg-accent/15 text-accent">
                   <Check className="size-4" strokeWidth={2.5} />
                 </span>
                 <span className="text-sm font-medium text-ink">{item.title}</span>
@@ -181,7 +183,9 @@ function NotFound() {
   return (
     <section className="bg-white py-32">
       <Container className="flex flex-col items-center gap-6 text-center">
-        <h1 className="text-3xl font-bold text-ink">Service not found</h1>
+        <h1 className="text-3xl font-medium tracking-[-0.02em] text-ink">
+          Service not found
+        </h1>
         <p className="text-ink/60">
           The service you're looking for doesn't exist or may have moved.
         </p>

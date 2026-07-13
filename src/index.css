@@ -20,9 +20,10 @@
   --color-accent: #d81f2a; /* red accent */
   --color-accent-600: #b3141f; /* red accent hover */
 
-  /* Typography */
-  --font-display: 'Sora', ui-sans-serif, system-ui, sans-serif;
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  /* Typography — Outfit carries the whole system (display + body), matching
+     the premium, rounded, light-headline treatment. Inter is the fallback. */
+  --font-display: 'Outfit', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Outfit', 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
@@ -35,11 +36,24 @@
     background: var(--color-surface);
     -webkit-font-smoothing: antialiased;
   }
+  /* Headlines lean LIGHT and tight — the signature of the reference look.
+     Weight is intentionally low (400–500) with negative tracking so large
+     type reads confident and editorial rather than heavy/templated. */
   h1,
   h2,
   h3,
   h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+  /* Shared uppercase label/eyebrow treatment. */
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-accent);
   }
 }
